@@ -1,13 +1,15 @@
-import { queryType } from "nexus";
-import { data } from "../data";
-import { User } from "./index";
+import { User } from "graphql/allTypes";
+import { extendType, nonNull, queryType, stringArg } from "nexus";
 
 //query
-export const Query = queryType({
+export const Query = extendType({
+  type: "Query",
   definition(t) {
     t.field("User", {
       type: User,
-      resolve: () => data.user,
+      async resolve(_parent, _args, ctx) {
+        await ctx.prisma.user.findMany();
+      },
     });
   },
 });

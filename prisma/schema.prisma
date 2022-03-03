@@ -1,68 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
 model User {
-  id                String   @id @default(uuid())
-  index             Int      @default(autoincrement())
-  name              String
-  tagline           String
-  email             String
-  github            String
-  website           String
-  phone             String
-  frontEndSkills    String[]
-  backEndSkills     String[]
-  infrastructures   String[]
-  projects          Project? 
-  positions         Position?
-  educations        Education?
+  id              String      @id @default(uuid())
+  index           Int         @default(autoincrement())
+  name            String    
+  tagline         String
+  email           String
+  github          String
+  website         String
+  phone           String
+  strength        String
+  born            String
+  objective       String
+  englishSkill    String
+  frontEndSkills  String[]
+  backEndSkills   String[]
+  infrastructures String[]
+  education       Education[]
+  project         Project[]
 }
 
 model Project {
-  id                String   @id @default(uuid())
-  index             Int      @default(autoincrement())
-  user              User     @relation(fields: [userId], references: [id])
-  userId            String  
-  title             String
-  description       String
-  technologies      String
-  techniques        String 
-  sourceCode        String?
-  link1             String?
-  link2             String?
-  link3             String?
-}
-
-model Position {
-   id                String   @id @default(uuid())
-  index              Int      @default(autoincrement())
-  user               User     @relation(fields: [userId], references: [id])
-  userId             String  
-  userId             String  
-  title              String 
-  company            String
-  startDate:         String?
-  endDate:           String?
-  employmentType     String?
-  link1              String?
-  link2              String?
+  id           String   @id @default(uuid())
+  index        Int      @default(autoincrement())
+  userId       String   
+  title        String
+  description  String
+  technologies String[]
+  techniques   String[]
+  sourceCode   String?
+  link1        String?
+  link2        String?
+  link3        String?
+  user         User     @relation(fields: [userId], references: [id])
 }
 
 model Education {
-  id                String   @id @default(uuid())
-  index             Int      @default(autoincrement())
-  user              User     @relation(fields: [userId], references: [id])
-  userId            String  
-  institution       String
-  degree            String
-  date              String
-  fieldOfStudy      String
+  id           String  @id @default(uuid())
+  index        Int     @default(autoincrement())
+  userId       String 
+  institution  String
+  degree       String
+  date         String?
+  fieldOfStudy String
+  user         User    @relation(fields: [userId], references: [id])
 }
-
-

@@ -1,4 +1,6 @@
-import { objectType } from "nexus";
+import { Project } from "./Project";
+import { Education } from "./Education";
+import { list, nonNull, objectType } from "nexus";
 
 export const User = objectType({
   name: "User",
@@ -11,14 +13,28 @@ export const User = objectType({
     t.string("github");
     t.string("website");
     t.string("phone");
-    // t.list.field("frontEndSkills", {
-    //   type: FrontEndSkill,
-    //   resolve(root, args, ctx) {},
-    // });
+    t.string("strength");
+    t.string("born");
+    t.string("objective");
+    t.string("englishSkill");
+    t.list.string("frontEndSkills");
+    t.list.string("backEndSkills");
+    t.list.string("infrastructures");
+    t.list.field("project", {
+      type: Project,
+      async resolve(parent, _args, ctx) {
+        return await ctx.prisma.project
+          .findUnique({ where: { id: parent.id } })
+          .project();
+      },
+    });
+    t.list.field("education", {
+      type: Education,
+      async resolve(parent, _args, ctx) {
+        return await ctx.prisma.education
+          .findUnique({ where: { id: parent.id } })
+          .education();
+      },
+    });
   },
 });
-
-// frontEndSkills     FrontEndSkill?
-// backEndSkills      BackEndSkill?
-// infrastructures    Infrastructure?
-// project           Projects?

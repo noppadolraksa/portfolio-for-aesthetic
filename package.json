@@ -5,13 +5,15 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "prismaDev": "dotenv -e .env.local -- npx prisma migrate dev "
     },
     "prisma": {
-        "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+        "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts",
+        "schema": "prisma/schema.prisma"
     },
     "dependencies": {
-        "@apollo/client": "^3.5.7",
+        "@apollo/client": "^3.5.10",
         "@emotion/core": "^11.0.0",
         "@emotion/css": "^11.7.1",
         "@emotion/react": "^11.7.1",
@@ -19,14 +21,16 @@
         "@mui/icons-material": "^5.2.4",
         "@mui/material": "^5.2.4",
         "@prisma/client": "^3.8.1",
-        "apollo-server-micro": "^3.5.0",
+        "apollo-server-micro": "^3.6.3",
         "babel-plugin-superjson-next": "^0.4.2",
-        "graphql": "^15.8.0",
+        "dotenv-cli": "^5.0.0",
+        "graphql": "^16.3.0",
         "micro": "^9.3.4",
         "micro-cors": "^0.1.1",
+        "moment": "^2.29.1",
         "next": "12.0.7",
         "next-themes": "^0.0.15",
-        "nexus": "^1.1.0",
+        "nexus": "^1.2.0",
         "nexus-plugin-prisma": "^0.35.0",
         "react": "17.0.2",
         "react-dom": "17.0.2",
