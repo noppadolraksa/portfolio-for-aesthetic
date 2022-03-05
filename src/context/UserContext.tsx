@@ -8,13 +8,18 @@ import react, {
   SetStateAction,
 } from "react";
 
+export type Skill = {
+  listening: number;
+  reading: number;
+  speaking: number;
+  writing: number;
+};
+
 export type Project = {
   id: string;
   description: string;
   index: number;
   sourceCode: string;
-  techniques: string[];
-  technologies: string[];
   title: string;
   link1?: string;
   link2?: string;
@@ -32,12 +37,12 @@ export type Education = {
 
 export type User = {
   id: string;
-  index: number;
+
   name: string;
   tagline: string;
   email: string;
   github: string;
-  website: string;
+
   strength: string;
   phone: string;
   objective: string;
@@ -48,6 +53,7 @@ export type User = {
   infrastructures: string[];
   project: Project[];
   education: Education[];
+  skill: Skill;
 };
 
 export type UserProps = {

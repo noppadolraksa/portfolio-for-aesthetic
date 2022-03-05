@@ -25,6 +25,7 @@ model User {
   infrastructures String[]
   education       Education[]
   project         Project[]
+  skill           Skill?
 }
 
 model Project {
@@ -51,4 +52,15 @@ model Education {
   date         String?
   fieldOfStudy String
   user         User    @relation(fields: [userId], references: [id])
+}
+
+model Skill {
+  id        String @id @default(uuid())
+  index     Int    @default(autoincrement())
+  userId    String @unique
+  reading   Int
+  writing   Int
+  speaking  Int
+  listening Int
+  user      User   @relation(fields: [userId], references: [id])
 }

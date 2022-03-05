@@ -12,8 +12,8 @@ import { UserProps } from "src/context/UserContext";
 const Container = styled.div`
   margin: 0;
   background-color: var(--bg);
-  /* width: 794px;
-  height: 1123px; */
+  /* width: 794px; */
+  height: 1123px;
 `;
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -55,6 +55,12 @@ export const getStaticProps: GetStaticProps = async () => {
             degree
             date
             fieldOfStudy
+          }
+          skill {
+            listening
+            reading
+            speaking
+            writing
           }
         }
       }

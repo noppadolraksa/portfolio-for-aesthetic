@@ -41,9 +41,6 @@ const ListItem = styled.div``;
 
 const ProjectContainer = styled.div`
   width: full;
-
-  padding-left: 20px;
-  margin-left: 10px;
 `;
 
 const SubSectionProject = ({ project }: ProjectType) => {

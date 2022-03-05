@@ -22,9 +22,13 @@ export const SubTitleText = styled.p`
   font-size: var(--sFont);
   color: var(--primaryFont);
   font-weight: 300;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  margin: auto;
+
   padding: 0px 4px 4px 0px;
   line-height: 20px;
+  margin: 0;
   overflow-wrap: break-word;
 
   /* color: var(--secondary);

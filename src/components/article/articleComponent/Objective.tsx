@@ -9,16 +9,22 @@ const SectionContainer = styled.section`
   margin-bottom: 20px;
 `;
 const DescContainer = styled.div`
-  flex: 3;
+  flex: 4;
+  width: full;
+  padding-left: 10px;
 `;
 
 const TitleTextContainer = styled.div`
-  margin: 0px 10px 0px 0px;
+  /* margin: 0px 10px 0px 0px; */
   flex: 1;
   padding: 0;
 `;
 
-const Objective = () => {
+type ObjectiveType = {
+  objective: string;
+};
+
+const Objective = ({ objective }: ObjectiveType) => {
   return (
     <SectionContainer>
       <TitleTextContainer>

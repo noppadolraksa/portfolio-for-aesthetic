@@ -16,10 +16,9 @@ const Container = styled.article`
 const Article = ({ user }: UserProps) => {
   return (
     <Container>
-      <Objective />
+      <Objective objective={user.objective} />
       <SectionEducation education={user?.education} />
       <SectionProject project={user?.project} />
-      {/* <Section title="Experience" education={user?.education}/> */}
     </Container>
   );
 };

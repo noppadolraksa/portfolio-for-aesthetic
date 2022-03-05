@@ -2,6 +2,7 @@ import { Education } from "./Education";
 import { objectType } from "nexus";
 import { Context } from "nexus-plugin-prisma/dist/utils";
 import { Project } from "./Project";
+import { Skill } from "./Skill";
 
 export const User = objectType({
   name: "User",
@@ -31,6 +32,12 @@ export const User = objectType({
       type: Education,
       async resolve(root, _args, ctx) {
         return ctx.prisma.education.findMany({ where: { userId: root.id } });
+      },
+    });
+    t.nullable.field("skill", {
+      type: Skill,
+      async resolve(root, _args, ctx) {
+        return ctx.prisma.skill.findUnique({ where: { userId: root.id } });
       },
     });
   },

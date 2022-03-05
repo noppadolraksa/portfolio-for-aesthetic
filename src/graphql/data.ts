@@ -1,5 +1,3 @@
-import { ArrowDownward } from "@mui/icons-material";
-
 export const data = {
   user: {
     name: "Noppadon Raksasiripong",
@@ -228,13 +226,13 @@ export const data = {
   ],
   education: [
     {
-      degree: "High school",
+      degree: "High School",
       institution: "Wat Nuan Noradit School",
       date: "2006-2012",
       fieldOfStudy: "Math&Science",
     },
     {
-      degree: "Bachelor degree",
+      degree: "Bachelor Degree",
       institution: "Faculty of Economics Thammasat University",
       date: "2013-2017",
       fieldOfStudy: "Business, International Business",
@@ -246,4 +244,10 @@ export const data = {
       fieldOfStudy: "html,css,javascript,frontend,backend",
     },
   ],
+  skill: {
+    reading: 5,
+    writing: 3,
+    speaking: 3,
+    listening: 4,
+  },
 };

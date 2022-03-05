@@ -41,9 +41,6 @@ const ListItem = styled.div``;
 
 const EducationContainer = styled.div`
   width: full;
-
-  padding-left: 20px;
-  margin-left: 10px;
 `;
 
 const SubSectionEducation = ({ education }: EducationProps) => {

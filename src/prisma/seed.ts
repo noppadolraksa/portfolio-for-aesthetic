@@ -27,6 +27,8 @@ async function main() {
     website,
   } = data.user;
 
+  const { reading, writing, listening, speaking } = data.skill;
+
   await prisma.user.create({
     data: {
       name: name,
@@ -44,6 +46,14 @@ async function main() {
       infrastructures: infrastructures,
       education: { createMany: { data: data.education } },
       project: { createMany: { data: data.project } },
+      skill: {
+        create: {
+          listening: listening,
+          speaking: speaking,
+          reading: reading,
+          writing: writing,
+        },
+      },
     },
   });
 

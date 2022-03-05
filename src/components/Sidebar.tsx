@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { SubTitleText, TitleText } from "src/text";
+import StarIcon from "@mui/icons-material/Star";
 
 import { UserProps, useUser } from "src/context/UserContext";
+import RatingStars from "src/utils/RatingStars";
 
 const Container = styled.div`
   flex: 1;
@@ -36,8 +38,20 @@ const ListItem = styled.li`
   white-space: nowrap;
   overflow: hidden;
 `;
+const SkillItem = styled.li`
+  margin: 3px 0px 3px 0px;
+
+  white-space: nowrap;
+  overflow: hidden;
+`;
+const RatingContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 const Sidebar = ({ user }: UserProps) => {
+  const { reading, writing, listening, speaking } = user.skill;
+
   return (
     <Container>
       <Wrapper>
@@ -63,7 +77,7 @@ const Sidebar = ({ user }: UserProps) => {
           <TitleText>{"BACKEND".toUpperCase()}</TitleText>
           <List>
             {user?.backEndSkills
-              .filter((item) => item !== "Authentication & Authorization*")
+              .filter((item) => item !== "Authentication & Authorization")
               .map((skill, index) => (
                 <ListItem key={index}>
                   <SubTitleText>{skill}</SubTitleText>
@@ -72,7 +86,7 @@ const Sidebar = ({ user }: UserProps) => {
 
             <SubTitleText style={{ margin: "3px 0px 3px 0px" }}>
               {user?.backEndSkills.filter(
-                (item) => item === "Authentication & Authorization*"
+                (item) => item === "Authentication & Authorization"
               )}
             </SubTitleText>
           </List>
@@ -85,6 +99,37 @@ const Sidebar = ({ user }: UserProps) => {
                 <SubTitleText>{skill}</SubTitleText>
               </ListItem>
             ))}
+          </List>
+        </SkillContainer>
+        <SkillContainer>
+          <TitleText>{"language".toUpperCase()}</TitleText>
+          <List>
+            <SkillItem>
+              <SubTitleText>
+                <span style={{ fontWeight: "400" }}>Thai:</span> Native
+              </SubTitleText>
+              <SubTitleText>
+                <span style={{ fontWeight: "400" }}>English:</span> Intermediate
+              </SubTitleText>
+
+              <SubTitleText>
+                <span style={{ fontWeight: "400" }}>reading:</span>
+                <RatingStars rating={reading} />
+              </SubTitleText>
+
+              <SubTitleText>
+                <span style={{ fontWeight: "400" }}>writing:</span>
+                <RatingStars rating={writing} />
+              </SubTitleText>
+              <SubTitleText>
+                <span style={{ fontWeight: "400" }}>speaking:</span>
+                <RatingStars rating={speaking} />
+              </SubTitleText>
+              <SubTitleText>
+                <span style={{ fontWeight: "400" }}>listening:</span>
+                <RatingStars rating={listening} />
+              </SubTitleText>
+            </SkillItem>
           </List>
         </SkillContainer>
       </Wrapper>

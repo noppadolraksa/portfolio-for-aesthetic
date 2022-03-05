@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import CallIcon from "@mui/icons-material/Call";
-
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import EmailIcon from "@mui/icons-material/Email";
 import { useTheme } from "next-themes";
 import Switch from "@mui/material/Switch";
 import LanguageIcon from "@mui/icons-material/Language";
-import { AddressText, PlainText, SubTitleText } from "src/text";
+import { AddressText, SubTitleText } from "src/text";
 import { UserProps } from "src/context/UserContext";
-
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 const NavbarContainer = styled.nav`
   margin-bottom: 20px;
   background-color: var(--bg);
@@ -123,7 +123,15 @@ const Navbar = ({ user }: UserProps) => {
       </Left>
       <Right>
         <ThemeSwitch>
-          <SubTitleText style={{ padding: 0 }}> Dark mode?</SubTitleText>
+          <SubTitleText
+            style={{ padding: 0, display: "flex", alignContent: "center" }}
+          >
+            {dark ? (
+              <DarkModeIcon />
+            ) : (
+              <Brightness7Icon style={{ color: "#444" }} />
+            )}
+          </SubTitleText>
           <Switch checked={dark} onClick={() => setDark(!dark)} />
         </ThemeSwitch>
         <RightContainer>
