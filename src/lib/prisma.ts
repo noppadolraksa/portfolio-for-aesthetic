@@ -7,7 +7,7 @@ import { PrismaClient } from "@prisma/client";
 // https://pris.ly/d/help/next-js-best-practices
 
 declare global {
-  var prisma: PrismaClient;
+  var prisma: PrismaClient | undefined;
 }
 
 if (process.env.NODE_ENV === "production") {
@@ -19,3 +19,9 @@ if (process.env.NODE_ENV === "production") {
   prisma = global.prisma;
 }
 export default prisma;
+
+// export const prisma = global.prisma || new PrismaClient();
+
+// if (process.env.NODE_ENV !== "production") {
+//   global.prisma = prisma;
+// }

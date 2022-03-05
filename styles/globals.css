@@ -15,29 +15,29 @@ a {
 }
 
 :root {
-  --bg: #cbd5e1;
+  --bg: white;
   --secondaryBg: rgb(153, 152, 152);
   --primary: #1e293b;
   --secondary: #94a3b8;
   --third: #4338ca;
   --primaryFont: #0f172a;
-  --secondaryFont: rgb(68, 68, 68);
+  --secondaryFont: rgb(204, 204, 204);
   --invertFont: rgb(206, 206, 206);
-  --ssFont: 10px;
-  --sFont: 13px;
-  --mFont: 16px;
-  --lFont: 20px;
-  --xlFont: 30px;
-  --xxlFont: 36px;
+  --ssFont: 8px;
+  --sFont: 10px;
+  --mFont: 13px;
+  --lFont: 16px;
+  --xlFont: 20px;
+  --xxlFont: 24px;
 }
 
 [data-theme="dark"] {
-  --bg: #1e293b;
+  --bg: #282b30;
   --secondaryBg: rgb(0, 0, 0);
-  --primary: #4338ca;
+  --primary: #312e81;
   --secondary: #cbd5e1;
   --third: #1564a5;
-  --primaryFont: #f1f5f9;
+  --primaryFont: #cbd5e1;
   --secondaryFont: rgb(204, 204, 204);
   --invertFont: rgb(201, 201, 201);
 }

@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
 import TitleSection from "./TitleSection";
-import SubSection from "./SubSection";
+
+import SubSectionProject from "./SubSectionProject";
+import { Project } from "src/context/UserContext";
 
 const SectionContainer = styled.div`
   margin-bottom: 20px;
@@ -13,21 +15,21 @@ const Div = styled.section`
   flex-direction: column;
 `;
 
-type SectionType = {
-  title: string;
+type ProjectType = {
+  project: Project[];
 };
 
-const Section = ({ title }: SectionType) => {
+const SectionProject = ({ project }: ProjectType) => {
   return (
     <SectionContainer>
       <Div>
-        <TitleSection title={title} />
+        <TitleSection title={"Project"} />
       </Div>
       <Div>
-        <SubSection />
+        <SubSectionProject project={project} />
       </Div>
     </SectionContainer>
   );
 };
 
-export default Section;
+export default SectionProject;

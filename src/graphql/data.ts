@@ -3,9 +3,11 @@ import { ArrowDownward } from "@mui/icons-material";
 export const data = {
   user: {
     name: "Noppadon Raksasiripong",
-    tagline: "Full-Stack Javascript Developer(Reactjs,Nextjs,Nodejs,Express)",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/myshop-e-commerce.appspot.com/o/sun_and_moon_icon_177460.png?alt=media&token=63624ddf-e57d-4e6d-944d-718e175f2442",
+    tagline: "Full-Stack Web Developer(Reactjs, Nextjs, Nodejs, Express)",
     email: "noppadol.raksa@gmail.com",
-    github: "https://github.com/noppadolraksa",
+    github: "github.com/noppadolraksa",
     website: "",
     strength: "Fast learner",
     englishSkill: "Intermediate",
@@ -20,7 +22,7 @@ export const data = {
       "Javascript",
       "Typescript",
       "Redux",
-      "ContextApi",
+      "Context api",
       "Styled-component",
       "Tailwind",
       "Firebase",
@@ -32,7 +34,7 @@ export const data = {
       "Mongodb",
       "SQL",
       "Prisma",
-      "Authentication & Authorization*",
+      "Authentication & Authorization",
       "Redis",
       "Socket.io",
       "Web Security",
@@ -146,7 +148,7 @@ export const data = {
     {
       title: "E-Commerce",
       description:
-        "MERN Stack E-commerce from scratch for practice with 30 pages that user can add products to cart and buy it then the the bill will show in admin dashboard",
+        "MERN Stack E-commerce from scratch for practice that user can add products to cart and buy it then the the bill will show on admin dashboard",
       technologies: [
         "ReactJS",
         "Redux",
@@ -177,8 +179,7 @@ export const data = {
         "Dockerize",
         "Dashboard(monthly reports & user reports & order list)",
       ],
-      sourceCode:
-        "https://github.com/noppadolraksa/e-commerce,https://github.com/noppadolraksa/E-commerce-backend,https://github.com/noppadolraksa/e-commerce-admin",
+      sourceCode: "https://github.com/noppadolraksa",
       link1: "https://my-shop-e-commerce.netlify.app",
       link2: "https://my-shop-admin.netlify.app",
       link3: "https://prezi.com/p/e8h1eijgkuo1/?present=1",
@@ -229,19 +230,19 @@ export const data = {
     {
       degree: "High school",
       institution: "Wat Nuan Noradit School",
-
+      date: "2006-2012",
       fieldOfStudy: "Math&Science",
     },
     {
       degree: "Bachelor degree",
       institution: "Faculty of Economics Thammasat University",
-
-      fieldOfStudy: "Major:Business, Minor:International Business",
+      date: "2013-2017",
+      fieldOfStudy: "Business, International Business",
     },
     {
       degree: "Codecamp",
       institution: "Freecodecamp",
-
+      date: "present",
       fieldOfStudy: "html,css,javascript,frontend,backend",
     },
   ],

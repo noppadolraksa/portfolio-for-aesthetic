@@ -6,18 +6,16 @@ import EmailIcon from "@mui/icons-material/Email";
 import { useTheme } from "next-themes";
 import Switch from "@mui/material/Switch";
 import LanguageIcon from "@mui/icons-material/Language";
-import { AddressText, PlainText } from "src/text";
+import { AddressText, PlainText, SubTitleText } from "src/text";
+import { UserProps } from "src/context/UserContext";
 
 const NavbarContainer = styled.nav`
-  width: 100vw;
   margin-bottom: 20px;
   background-color: var(--bg);
   display: flex;
   align-content: center;
   justify-content: space-between;
 `;
-
-const Wrapper = styled.div``;
 
 const Left = styled.div`
   flex: 1;
@@ -28,7 +26,7 @@ const Left = styled.div`
 const PictureContainer = styled.div`
   background-color: var(--primary);
   margin: 0;
-  width: 60%;
+  width: 80%;
   height: 235px;
   display: flex;
   align-items: flex-end;
@@ -38,8 +36,9 @@ const PictureContainer = styled.div`
 
 const ProfileWrapper = styled.img`
   object-fit: cover;
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
+
   background-color: var(--bg);
   border-radius: 50%;
   z-index: 2;
@@ -66,13 +65,13 @@ const Name = styled.h1`
   color: var(--primaryFont);
   font-weight: 500;
   line-height: 50px;
-  margin: 40px 0px;
+  margin: 40px 0px 0px;
 `;
 
 const Position = styled.h4`
   font-size: var(--lFont);
   color: var(--primaryFont);
-  margin: 0px 0px 25px;
+  margin: 0;
   font-weight: 300;
   line-height: 30px;
 `;
@@ -90,10 +89,20 @@ const Address = styled.div`
   display: flex;
   align-items: center;
   flex: 1;
-  padding-left: 20px;
+  padding-right: 10px;
+  padding-left: 5px;
 `;
 
-const Navbar = () => {
+const PersonalInfo = styled.div``;
+
+const RightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+`;
+
+const Navbar = ({ user }: UserProps) => {
   const { theme, setTheme } = useTheme();
   const [dark, setDark] = useState(false);
 
@@ -114,25 +123,31 @@ const Navbar = () => {
       </Left>
       <Right>
         <ThemeSwitch>
-          <PlainText> Dark mode?</PlainText>
+          <SubTitleText style={{ padding: 0 }}> Dark mode?</SubTitleText>
           <Switch checked={dark} onClick={() => setDark(!dark)} />
         </ThemeSwitch>
-        <Name>Noppadon Raksasiripong</Name>
-        <Position> Full Stack Developer(ReactJs, NodeJs)</Position>
-        <AddressContainer>
-          <Address>
-            <CallIcon style={{ color: "var(--invertFont)" }} />
-            <AddressText>tel</AddressText>
-          </Address>
-          <Address>
-            <LanguageIcon style={{ color: "var(--invertFont)" }} />
-            <AddressText>website</AddressText>
-          </Address>
-          <Address>
-            <EmailIcon style={{ color: "var(--invertFont)" }} />
-            <AddressText>email</AddressText>
-          </Address>
-        </AddressContainer>
+        <RightContainer>
+          <PersonalInfo>
+            <Name>{user?.name}</Name>
+            <Position> {user?.tagline}</Position>
+            <SubTitleText>strength: {user?.strength}</SubTitleText>
+            <SubTitleText> {user?.born}</SubTitleText>
+          </PersonalInfo>
+          <AddressContainer>
+            <Address>
+              <CallIcon style={{ color: "#eee" }} />
+              <AddressText>{user?.phone}</AddressText>
+            </Address>
+            <Address>
+              <LanguageIcon style={{ color: "#eee" }} />
+              <AddressText>{user?.github}</AddressText>
+            </Address>
+            <Address>
+              <EmailIcon style={{ color: "#eee" }} />
+              <AddressText>{user?.email}</AddressText>
+            </Address>
+          </AddressContainer>
+        </RightContainer>
       </Right>
     </NavbarContainer>
   );

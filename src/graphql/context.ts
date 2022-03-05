@@ -5,8 +5,8 @@ import prisma from "../lib/prisma";
 export type Context = {
   prisma: PrismaClient;
 };
-export async function createContext({}): Promise<Context> {
+export const createContext = (): Context => {
   return {
     prisma,
   };
-}
+};

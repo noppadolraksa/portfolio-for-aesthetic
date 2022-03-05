@@ -2,6 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 import { SubTitleText, TitleText } from "src/text";
 
+import { UserProps, useUser } from "src/context/UserContext";
+
 const Container = styled.div`
   flex: 1;
   display: flex;
@@ -11,7 +13,8 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   margin: 0;
-  width: 60%;
+  width: 80%;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -19,41 +22,70 @@ const Wrapper = styled.div`
 
 const SkillContainer = styled.div``;
 
-const PlainTextContainer = styled.div`
+const List = styled.ul`
+  margin: 10px 0px 10px 0px;
+  padding: 0;
+  list-style: none;
   display: flex;
-  overflow-wrap: break-word;
-  line-height: 15px;
-  margin: 10px 0px;
+  flex-wrap: wrap;
 `;
 
-const Sidebar = () => {
+const ListItem = styled.li`
+  margin: 3px 0px 3px 0px;
+  width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+`;
+
+const Sidebar = ({ user }: UserProps) => {
   return (
     <Container>
       <Wrapper>
         <SkillContainer>
           <TitleText>{"FRONTEND".toUpperCase()}</TitleText>
-          <SubTitleText>1</SubTitleText>
+          <List>
+            {user?.frontEndSkills
+              .filter((item) => item !== "Styled-component")
+              .map((skill, index) => (
+                <ListItem key={index}>
+                  <SubTitleText>{skill}</SubTitleText>
+                </ListItem>
+              ))}
+
+            <SubTitleText style={{ margin: "3px 0px 3px 0px" }}>
+              {user?.frontEndSkills.filter(
+                (item) => item === "Styled-component"
+              )}
+            </SubTitleText>
+          </List>
         </SkillContainer>
         <SkillContainer>
           <TitleText>{"BACKEND".toUpperCase()}</TitleText>
-          <SubTitleText>1</SubTitleText>
+          <List>
+            {user?.backEndSkills
+              .filter((item) => item !== "Authentication & Authorization*")
+              .map((skill, index) => (
+                <ListItem key={index}>
+                  <SubTitleText>{skill}</SubTitleText>
+                </ListItem>
+              ))}
+
+            <SubTitleText style={{ margin: "3px 0px 3px 0px" }}>
+              {user?.backEndSkills.filter(
+                (item) => item === "Authentication & Authorization*"
+              )}
+            </SubTitleText>
+          </List>
         </SkillContainer>
         <SkillContainer>
           <TitleText>{"infrastructure".toUpperCase()}</TitleText>
-          <SubTitleText>1</SubTitleText>
-        </SkillContainer>
-        <SkillContainer>
-          <TitleText>{"SPECIFY".toUpperCase()}</TitleText>
-          <SubTitleText>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus,
-            libero! Ad cumque ab, earum recusandae aut aliquam, nulla modi
-            consectetur nobis accusantium corrupti debitis accusamus natus?
-            Aspernatur at perferendis laboriosam.
-          </SubTitleText>
-        </SkillContainer>
-        <SkillContainer>
-          <TitleText>{"hobbies".toUpperCase()}</TitleText>
-          <SubTitleText>1</SubTitleText>
+          <List>
+            {user?.infrastructures.map((skill, index) => (
+              <ListItem key={index}>
+                <SubTitleText>{skill}</SubTitleText>
+              </ListItem>
+            ))}
+          </List>
         </SkillContainer>
       </Wrapper>
     </Container>

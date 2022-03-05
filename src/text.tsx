@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 export const AddressText = styled.p`
-  color: var(--primaryFont);
+  color: var(--secondaryFont);
   font-size: 12px;
 `;
 
@@ -25,7 +25,7 @@ export const SubTitleText = styled.p`
   margin: 0;
   padding: 0px 4px 4px 0px;
   line-height: 20px;
-  /* overflow-wrap: break-word; */
+  overflow-wrap: break-word;
 
   /* color: var(--secondary);
   text-shadow: 0 0 10px var(--third); */
