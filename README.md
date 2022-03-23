@@ -4,3 +4,4 @@
 2. npm add .
 3. add DATABASE_URL in .env.local file
 4. npm run prismaDev //migrate and seed database
+5. build mode => npm run prismaGenerate && npm run prismaMigrateDeploy && next build
