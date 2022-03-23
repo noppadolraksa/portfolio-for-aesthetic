@@ -1,4 +1,4 @@
-<b>Portfolio with typescript postgresql graphql prisma nexus nextjs tailwind apollo/client</b>
+<b>Portfolio with typescript postgresql graphql prisma nexus nextjs styled-component apollo/client</b>
 
 1. clone this project
 2. npm add .
