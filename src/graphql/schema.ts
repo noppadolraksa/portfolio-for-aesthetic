@@ -5,7 +5,7 @@ import { nexusPrisma } from "nexus-plugin-prisma";
 
 export const schema = makeSchema({
   types,
-  plugins: [nexusPrisma({ experimentalCRUD: true })],
+  plugins: [connectionPlugin(), nexusPrisma({ experimentalCRUD: true })],
   outputs: {
     typegen: join(
       process.cwd(),

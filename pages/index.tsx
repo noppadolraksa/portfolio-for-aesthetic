@@ -12,7 +12,7 @@ import { UserProps } from "src/context/UserContext";
 const Container = styled.div`
   margin: 0;
   background-color: var(--bg);
-  /* width: 794px; */
+  width: 794px;
   height: 1123px;
 `;
 
@@ -24,29 +24,23 @@ export const getStaticProps: GetStaticProps = async () => {
           id
           index
           name
+          image
+          location
           tagline
           email
           github
           website
-          strength
           phone
-          objective
+          strength
           born
-          englishSkill
-          backEndSkills
-          frontEndSkills
-          infrastructures
-          project {
-            id
-            description
+          objective
+          experience {
             index
-            sourceCode
-            techniques
-            technologies
-            title
-            link1
-            link2
-            link3
+            name
+            period
+            type
+            id
+            location
           }
           education {
             id
@@ -54,13 +48,22 @@ export const getStaticProps: GetStaticProps = async () => {
             institution
             degree
             date
-            fieldOfStudy
           }
           skill {
             listening
             reading
             speaking
             writing
+            skills
+            id
+            personalities
+          }
+          certification {
+            id
+            index
+            name
+            desc
+            year
           }
         }
       }

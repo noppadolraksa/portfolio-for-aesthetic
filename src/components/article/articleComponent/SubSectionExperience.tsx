@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { SubTitleText } from "src/utils/text";
-import { Education } from "src/context/UserContext";
+import { Experience } from "src/context/UserContext";
 
-type EducationProps = {
-  education: Education[];
+type ExperienceProps = {
+  experience: Experience[];
 };
 
 const Container = styled.div``;
@@ -39,41 +39,39 @@ const List = styled.div``;
 
 const ListItem = styled.div``;
 
-const EducationContainer = styled.div`
+const ExperienceContainer = styled.div`
   width: full;
 `;
 
-const SubSectionEducation = ({ education }: EducationProps) => {
+const SubSectionExperience = ({ experience }: ExperienceProps) => {
   return (
     <div>
-      <EducationContainer>
+      <ExperienceContainer>
         <Container>
-          {education?.map((list) => (
-            <Topic key={list.id}>
+          {experience?.map((list) => (
+            <Topic key={list.index}>
               <Left>
                 {/* <SubTitleText>{list.date}</SubTitleText> */}
                 <SubTitleText style={{ fontWeight: 400 }}>
-                  {list.date}
+                  {list.period === "" ? list.type : list.period}
                 </SubTitleText>
               </Left>
               <Right>
                 <List>
                   <ListItem>
                     <SubTitleText style={{ fontWeight: 500 }}>
-                      {list.degree}
+                      {list.name}
                     </SubTitleText>
-                  </ListItem>
-                  <ListItem>
-                    <SubTitleText>{list.institution}</SubTitleText>
+                    <SubTitleText>{list.location}</SubTitleText>
                   </ListItem>
                 </List>
               </Right>
             </Topic>
           ))}
         </Container>
-      </EducationContainer>
+      </ExperienceContainer>
     </div>
   );
 };
 
-export default SubSectionEducation;
+export default SubSectionExperience;

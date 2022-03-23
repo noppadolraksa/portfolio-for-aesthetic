@@ -2,8 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 import TitleSection from "./TitleSection";
 
-import SubSectionProject from "./SubSectionProject";
-import { Project } from "src/context/UserContext";
+import SubSectionExperience from "./SubSectionExperience";
+import { Experience, UserProps } from "src/context/UserContext";
 
 const SectionContainer = styled.div`
   margin-bottom: 20px;
@@ -14,22 +14,21 @@ const Div = styled.section`
   justify-content: center;
   flex-direction: column;
 `;
-
-type ProjectType = {
-  project: Project[];
+type ExperienceProps = {
+  experience: Experience[];
 };
 
-const SectionProject = ({ project }: ProjectType) => {
+const SectionExperience = ({ experience }: ExperienceProps) => {
   return (
     <SectionContainer>
       <Div>
-        <TitleSection title={"Project"} />
+        <TitleSection title="Experience" />
       </Div>
       <Div>
-        <SubSectionProject project={project} />
+        <SubSectionExperience experience={experience} />
       </Div>
     </SectionContainer>
   );
 };
 
-export default SectionProject;
+export default SectionExperience;

@@ -7,6 +7,8 @@ export const Skill = objectType({
     t.model.reading();
     t.model.speaking();
     t.model.writing();
+    t.model.skills();
+    t.model.personalities();
     t.model.id();
     t.model.userId();
   },

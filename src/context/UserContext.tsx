@@ -13,17 +13,18 @@ export type Skill = {
   reading: number;
   speaking: number;
   writing: number;
+  skills: string[];
+  id: string;
+  personalities: string[];
 };
 
-export type Project = {
-  id: string;
-  description: string;
+export type Experience = {
   index: number;
-  sourceCode: string;
-  title: string;
-  link1?: string;
-  link2?: string;
-  link3?: string;
+  name: string;
+  period: string;
+  type: string;
+  location: string;
+  id: string;
 };
 
 export type Education = {
@@ -35,25 +36,32 @@ export type Education = {
   fieldOfStudy: string;
 };
 
+export type Certification = {
+  id: string;
+  index: number;
+  name: string;
+  desc: string;
+  year: string;
+};
+
 export type User = {
   id: string;
-
+  index: number;
   name: string;
+  image: string;
+  location: string;
   tagline: string;
   email: string;
   github: string;
-
-  strength: string;
+  website: string;
   phone: string;
-  objective: string;
+  strength: string;
   born: string;
-  englishSkill: string;
-  backEndSkills: string[];
-  frontEndSkills: string[];
-  infrastructures: string[];
-  project: Project[];
+  objective: string;
+  experience: Experience[];
   education: Education[];
   skill: Skill;
+  certification: Certification[];
 };
 
 export type UserProps = {

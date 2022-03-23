@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { SubTitleText, TitleText } from "src/text";
-import StarIcon from "@mui/icons-material/Star";
+import { PersonalitiesText, SubTitleText, TitleText } from "src/utils/text";
 
 import { UserProps, useUser } from "src/context/UserContext";
 import RatingStars from "src/utils/RatingStars";
 
 const Container = styled.div`
-  flex: 1;
+  width: 33%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -49,60 +48,22 @@ const RatingContainer = styled.div`
   align-items: center;
 `;
 
+const PersonalitiesContainer = styled.div`
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+`;
+
 const Sidebar = ({ user }: UserProps) => {
-  const { reading, writing, listening, speaking } = user.skill;
+  const { reading, writing, listening, speaking, skills, personalities } =
+    user.skill;
 
   return (
     <Container>
       <Wrapper>
         <SkillContainer>
-          <TitleText>{"FRONTEND".toUpperCase()}</TitleText>
-          <List>
-            {user?.frontEndSkills
-              .filter((item) => item !== "Styled-component")
-              .map((skill, index) => (
-                <ListItem key={index}>
-                  <SubTitleText>{skill}</SubTitleText>
-                </ListItem>
-              ))}
-
-            <SubTitleText style={{ margin: "3px 0px 3px 0px" }}>
-              {user?.frontEndSkills.filter(
-                (item) => item === "Styled-component"
-              )}
-            </SubTitleText>
-          </List>
-        </SkillContainer>
-        <SkillContainer>
-          <TitleText>{"BACKEND".toUpperCase()}</TitleText>
-          <List>
-            {user?.backEndSkills
-              .filter((item) => item !== "Authentication & Authorization")
-              .map((skill, index) => (
-                <ListItem key={index}>
-                  <SubTitleText>{skill}</SubTitleText>
-                </ListItem>
-              ))}
-
-            <SubTitleText style={{ margin: "3px 0px 3px 0px" }}>
-              {user?.backEndSkills.filter(
-                (item) => item === "Authentication & Authorization"
-              )}
-            </SubTitleText>
-          </List>
-        </SkillContainer>
-        <SkillContainer>
-          <TitleText>{"infrastructure".toUpperCase()}</TitleText>
-          <List>
-            {user?.infrastructures.map((skill, index) => (
-              <ListItem key={index}>
-                <SubTitleText>{skill}</SubTitleText>
-              </ListItem>
-            ))}
-          </List>
-        </SkillContainer>
-        <SkillContainer>
-          <TitleText>{"language".toUpperCase()}</TitleText>
+          <TitleText>{"skills".toUpperCase()}</TitleText>
           <List>
             <SkillItem>
               <SubTitleText>
@@ -112,23 +73,42 @@ const Sidebar = ({ user }: UserProps) => {
                 <span style={{ fontWeight: "400" }}>English:</span> Intermediate
               </SubTitleText>
 
-              <SubTitleText>
+              <SubTitleText style={{ display: "flex" }}>
                 <span style={{ fontWeight: "400" }}>reading:</span>
                 <RatingStars rating={reading} />
               </SubTitleText>
 
-              <SubTitleText>
+              <SubTitleText style={{ display: "flex" }}>
                 <span style={{ fontWeight: "400" }}>writing:</span>
                 <RatingStars rating={writing} />
               </SubTitleText>
-              <SubTitleText>
+              <SubTitleText style={{ display: "flex" }}>
                 <span style={{ fontWeight: "400" }}>speaking:</span>
                 <RatingStars rating={speaking} />
               </SubTitleText>
-              <SubTitleText>
+              <SubTitleText style={{ display: "flex" }}>
                 <span style={{ fontWeight: "400" }}>listening:</span>
                 <RatingStars rating={listening} />
               </SubTitleText>
+              <PersonalitiesContainer>
+                {skills?.map((skill, index) => (
+                  <PersonalitiesText key={index}>{skill}</PersonalitiesText>
+                ))}
+              </PersonalitiesContainer>
+            </SkillItem>
+          </List>
+        </SkillContainer>
+        <SkillContainer>
+          <TitleText>{"soft skills".toUpperCase()}</TitleText>
+          <List>
+            <SkillItem>
+              <PersonalitiesContainer>
+                {personalities?.map((personality, index) => (
+                  <PersonalitiesText key={index}>
+                    {personality}
+                  </PersonalitiesText>
+                ))}
+              </PersonalitiesContainer>
             </SkillItem>
           </List>
         </SkillContainer>

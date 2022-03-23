@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { SubTitleText } from "src/utils/text";
-import { Education } from "src/context/UserContext";
+import { Certification } from "src/context/UserContext";
 
-type EducationProps = {
-  education: Education[];
+type CertificationProps = {
+  certification: Certification[];
 };
 
 const Container = styled.div``;
@@ -39,41 +39,41 @@ const List = styled.div``;
 
 const ListItem = styled.div``;
 
-const EducationContainer = styled.div`
+const CertificationContainer = styled.div`
   width: full;
 `;
 
-const SubSectionEducation = ({ education }: EducationProps) => {
+const SubSectionCertification = ({ certification }: CertificationProps) => {
   return (
     <div>
-      <EducationContainer>
+      <CertificationContainer>
         <Container>
-          {education?.map((list) => (
+          {certification?.map((list) => (
             <Topic key={list.id}>
               <Left>
                 {/* <SubTitleText>{list.date}</SubTitleText> */}
                 <SubTitleText style={{ fontWeight: 400 }}>
-                  {list.date}
+                  {list.year}
                 </SubTitleText>
               </Left>
               <Right>
                 <List>
                   <ListItem>
                     <SubTitleText style={{ fontWeight: 500 }}>
-                      {list.degree}
+                      {list.name}
                     </SubTitleText>
                   </ListItem>
                   <ListItem>
-                    <SubTitleText>{list.institution}</SubTitleText>
+                    <SubTitleText>{list.desc}</SubTitleText>
                   </ListItem>
                 </List>
               </Right>
             </Topic>
           ))}
         </Container>
-      </EducationContainer>
+      </CertificationContainer>
     </div>
   );
 };
 
-export default SubSectionEducation;
+export default SubSectionCertification;
