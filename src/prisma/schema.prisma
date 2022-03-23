@@ -8,64 +8,65 @@ datasource db {
 }
 
 model User {
-  id              String      @id @default(uuid())
-  index           Int         @default(autoincrement())
-  name            String
-  tagline         String
-  email           String
-  github          String
-  website         String
-  phone           String
-  strength        String
-  image           String
-  born            String
-  location        String
-  objective       String
-  education       Education[]
-  experience      Experience[]
-  certification   Certification[]
-  skill           Skill?
+  id            String          @id @default(uuid())
+  index         Int             @default(autoincrement())
+  name          String
+  tagline       String
+  email         String
+  github        String
+  website       String
+  phone         String
+  strength      String
+  image         String
+  born          String
+  location      String
+  objective     String
+  education     Education[]
+  experience    Experience[]
+  certification Certification[]
+  skill         Skill?
 }
 
 model Certification {
-  id           String   @id @default(uuid())
-  index        Int      @default(autoincrement())
-  userId       String
-  name         String
-  desc         String
-  year         String
-  user         User     @relation(fields: [userId], references: [id])
+  id     String @id @default(uuid())
+  index  Int    @default(autoincrement())
+  userId String
+  name   String
+  desc   String
+  year   String
+  user   User   @relation(fields: [userId], references: [id])
 }
 
 model Education {
-  id           String  @id @default(uuid())
-  index        Int     @default(autoincrement())
-  userId       String
-  institution  String
-  degree       String
-  date         String?
-  user         User    @relation(fields: [userId], references: [id])
+  id          String  @id @default(uuid())
+  index       Int     @default(autoincrement())
+  userId      String
+  institution String
+  degree      String
+  date        String?
+  user        User    @relation(fields: [userId], references: [id])
 }
+
 model Experience {
-  id           String  @id @default(uuid())
-  index        Int     @default(autoincrement())
-  userId       String
-  name         String
-  location     String
-  period       String
-  type         String
-  user         User    @relation(fields: [userId], references: [id])
+  id       String @id @default(uuid())
+  index    Int    @default(autoincrement())
+  userId   String
+  name     String
+  location String
+  period   String
+  type     String
+  user     User   @relation(fields: [userId], references: [id])
 }
 
 model Skill {
-  id        String @id @default(uuid())
-  index     Int    @default(autoincrement())
-  userId    String @unique
-  skills     String[]
-  reading   Int
-  writing   Int
-  speaking  Int
-  listening Int
+  id            String   @id @default(uuid())
+  index         Int      @default(autoincrement())
+  userId        String   @unique
+  skills        String[]
+  reading       Int
+  writing       Int
+  speaking      Int
+  listening     Int
   personalities String[]
-  user      User   @relation(fields: [userId], references: [id])
+  user          User     @relation(fields: [userId], references: [id])
 }

@@ -138,7 +138,7 @@ const Navbar = ({ user }: UserProps) => {
     <NavbarContainer>
       <Left>
         <PictureContainer>
-          <ProfileWrapper />
+          <ProfileWrapper src={user.image} alt="profile pic" />
         </PictureContainer>
       </Left>
       <Right>

@@ -1,7 +1,8 @@
 export const data = {
   user: {
     name: "Arthitayaporn Wongsrisang",
-    image: "",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/chata-6a69a.appspot.com/o/image2.jpeg?alt=media&token=33c8acd3-6a45-46e4-a8a2-b7063f00ee6c",
     tagline: "Aesthetic doctor",
     email: "nyankodudew@gmail.com",
     github: "",
